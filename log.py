@@ -7,8 +7,8 @@ from telegram import Bot
 async def send_message(chat_id, telegram_message, bot_token):
     bot = Bot(token=bot_token)
     await bot.send_message(chat_id=chat_id, text=telegram_message)
-# List of words to search for
-words_to_search = ['WARNING','ERROR','ls -la' ] #Вы можете добавить любые слова для поиска в ваших логах
+# Список слов для поиска в логах 
+words_to_search = ['WARNING','ERROR','ls -la' ] 
 
 # путь до файла логов на удаленном сервере
 log_file = '/dir/log/logfile.log'
