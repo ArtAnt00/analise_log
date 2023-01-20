@@ -22,7 +22,10 @@ password = "пароль"
 port = "порт"
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect(hostname=hostname, username=username, password=password, port=port)
+try:
+    ssh.connect(hostname=hostname, username=username, password=password, port=port)
+except Exception as e:
+    print(f'Error  SSH connection: {e}')
 
 # Read the log file on the remote system
 stdin, stdout, stderr = ssh.exec_command(f"cat {log_file}")
